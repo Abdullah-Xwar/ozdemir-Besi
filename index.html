@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F1RG1Y3BVL"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -59,7 +58,6 @@
             color: var(--dark);
             line-height: 1.7;
             overflow-x: hidden;
-            /* Ultra Premium Doku Arka Planı */
             background-image: 
                 radial-gradient(var(--primary) 0.5px, transparent 0.5px),
                 linear-gradient(to bottom, #ffffff, #f9fbf9);
@@ -187,7 +185,6 @@
         .hero-bg {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            /* Huzurlu ve Kaliteli Arka Plan Fotoğrafı */
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), 
                         url('https://images.unsplash.com/photo-1500382017468-9049fee74a62?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
@@ -252,7 +249,6 @@
         .btn-fill:hover { background: var(--primary-dark); }
         .btn-outline:hover { background: var(--light); color: var(--dark); }
 
-        /* Dekoratif Arka Plan Figürleri */
         .floating-icon {
             position: absolute; color: rgba(255,255,255,0.1);
             animation: float 10s infinite ease-in-out; z-index: 1;
@@ -336,6 +332,125 @@
 
         .card-premium h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 20px; }
         .card-premium p { color: #666; font-size: 1rem; line-height: 1.8; }
+
+        /* ================================================================
+           NEW: FAMILY SECTION (AILEMİZDEN ÖZEL KART)
+           ================================================================
+        */
+        .family-card {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--light);
+            border-radius: 50px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .family-card-img-wrapper {
+            flex: 1;
+            min-height: 450px;
+            position: relative;
+            background: #e0e0e0;
+            overflow: hidden; 
+        }
+
+        /* --- Instagram Style Slider Elements --- */
+        .slider-progress-bar {
+            position: absolute;
+            top: 15px; left: 10px; right: 10px;
+            display: flex; gap: 5px;
+            z-index: 10;
+        }
+
+        .progress-dot {
+            height: 3px; flex: 1;
+            background: rgba(255,255,255,0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-dot-fill {
+            height: 100%; width: 0%;
+            background: var(--light);
+            transition: width 10s linear;
+        }
+
+        .progress-dot-fill.active { width: 100%; }
+        .progress-dot-fill.finished { width: 100%; transition: none; }
+
+        .slider-nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 40px; height: 40px; border-radius: 50%;
+            background: rgba(0,0,0,0.3); color: white;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; z-index: 10; border: none; transition: var(--transition);
+        }
+
+        .slider-nav-btn:hover { background: rgba(0,0,0,0.6); }
+        .slider-nav-btn.prev { left: 15px; }
+        .slider-nav-btn.next { right: 15px; }
+
+        #demo-family-slider {
+            display: flex;
+            width: 500%; /* 5 Fotoğraf için %500 */
+            height: 100%;
+            transition: transform 1.2s cubic-bezier(0.45, 0, 0.55, 1);
+        }
+
+        #demo-family-slider img {
+            width: 20%; /* 100 / 5 = 20% */
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .family-card-img-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: linear-gradient(to right, transparent 70%, var(--light) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .family-card-content {
+            flex: 1.2;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .family-card-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .family-card-content .work-tag {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 5px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 992px) {
+            .family-card { flex-direction: column; }
+            .family-card-img-wrapper { min-height: 350px; }
+            .family-card-img-wrapper::after {
+                background: linear-gradient(to bottom, transparent 70%, var(--light) 100%);
+            }
+            .family-card-content { padding: 40px 30px; }
+        }
 
         /* ================================================================
            7. TEAM & LISTING (EKİBİMİZ & İLANLAR)
@@ -469,7 +584,6 @@
             section { padding: 80px 5%; }
             .hero h1 { font-size: 3.5rem; }
             
-            /* Mobil Menü Aktif Hali */
             .nav-links.active {
                 display: flex;
                 flex-direction: column;
@@ -505,6 +619,7 @@
         <div class="nav-links" id="navLinks">
             <a href="#home">Ana Sayfa</a>
             <a href="#about">Biz Kimiz</a>
+            <a href="#family">Ailemizden</a>
             <a href="#team">Yönetim</a>
             <a href="#list">İlanlar</a>
             <a href="#contact">İletişim</a>
@@ -560,10 +675,52 @@
         </div>
     </section>
 
+    <section id="family" style="background: #fafafa;">
+        <div class="section-header">
+            <span class="section-tag">Zanaatın Kalbi</span>
+            <h2 class="section-title">Ailemizden</h2>
+        </div>
+        
+        <div class="family-card hidden">
+            <div class="family-card-img-wrapper">
+                <div class="slider-progress-bar" id="progress-container">
+                    <div class="progress-dot"><div class="progress-dot-fill"></div></div>
+                    <div class="progress-dot"><div class="progress-dot-fill"></div></div>
+                    <div class="progress-dot"><div class="progress-dot-fill"></div></div>
+                    <div class="progress-dot"><div class="progress-dot-fill"></div></div>
+                    <div class="progress-dot"><div class="progress-dot-fill"></div></div>
+                </div>
+
+                <button class="slider-nav-btn prev" id="prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="slider-nav-btn next" id="next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+
+                <div id="demo-family-slider">
+                    <img src="doga.jpeg" alt="İspir Yaylaları">
+                    <img src="doga2.jpeg" alt="Geniş Meralar">
+                    <img src="metal.jpeg" alt="Ustalık Eserleri">
+                    <img src="metal2.jpeg" alt="ustalık Eserleri 2">
+                    <img src="aahir.jpeg" alt="Çelik Çatıcılık">
+                </div>
+            </div>
+            <div class="family-card-content">
+                <span class="work-tag">ÖZDEMİRLER METAL</span>
+                <h3>Eyüp Özdemir</h3>
+                <p>Ailemizin direği Eyüp Özdemir, sadece çiftliğimizde değil, demir ve çelik zanaatında da bölgenin en saygın isimlerinden biridir. <strong>ÖzdemirlerMetal</strong> iş yerini yöneterek yıllardır demircilik, çelik konstrüksiyon ve çatı sistemleri üzerine ustalık icat etmektedir.</p>
+                <br>
+                <p>Kestel Belediyesi'nin yıllardır park ve bahçelerdeki banklarını yapan, kamu alanlarına değer katan Eyüp Bey, aynı zamanda Kestel Belediye Başkanı'nın yanında uzun yıllar destek vermiş, tecrübesiyle güven kazanmış bir isimdir.</p>
+                <div style="margin-top: 30px; display: flex; gap: 15px; color: var(--primary);">
+                    <i class="fa-solid fa-hammer"></i>
+                    <i class="fa-solid fa-trowel-bricks"></i>
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="team" style="background: #fdfdfd;">
         <div class="section-header">
             <span class="section-tag">Güçlü Kadro</span>
-            <h2 class="section-title">Özdemir Ailesi</h2>
+            <h2 class="section-title">Özdemir Ailesi <i class="fa-solid fa-house-chimney-user" style="color: rgb(39, 39, 39);"></i></h2>
         </div>
         <div class="grid-3" style="max-width: 900px; margin: 0 auto;">
             <div class="card-premium hidden">
@@ -591,15 +748,15 @@
                 <div style="font-size: 4rem; color: #444; margin-bottom: 20px;"><i class="fa-solid fa-cow"></i></div>
                 <h3>Büyükbaş Kurban</h3>
                 <span class="price-badge">Hisse & Adet</span>
-                <p>Tamamen yerli besi, veteriner kontrollü ve kurban vasıflarına uygun danalar.</p>
-                <button class="btn-premium btn-fill" style="width: 100%; margin-top: 30px; justify-content: center;" onclick="window.open('https://wa.me/905376331025')">Bilgi Al</button>
+                <p>Tamamen yerli besi, veteriner kontrollü ve kurban vasıflarına uygun inekler.</p>
+                <button class="btn-premium btn-fill" style="width: 100%; margin-top: 30px; justify-content: center;" onclick="window.open('https://wa.me/905376331025')">Bilgi Al <i class="fa-solid fa-shop" style="color: rgb(39, 39, 39);"></i></button>
             </div>
             <div class="card-premium hidden">
-                <div style="font-size: 4rem; color: #444; margin-bottom: 20px;"><i class="fa-solid fa-sheep"></i></div>
-                <h3>Küçükbaş & Adaklık</h3>
+                <div style="font-size: 4rem; color: #444; margin-bottom: 20px;"><i class="fa-solid fa-cow"></i></div>
+                <h3>Dana & Adaklık</h3>
                 <span class="price-badge">Hemen Teslim</span>
-                <p>İspir'in kekik kokulu etini sofranıza taşıyan, sağlıklı koç ve kuzular.</p>
-                <button class="btn-premium btn-fill" style="width: 100%; margin-top: 30px; justify-content: center;" onclick="window.open('https://wa.me/905376331025')">Fiyat Sor</button>
+                <p>İspir'in kekik kokulu etini sofranıza taşıyan, sağlıklı dana ve dügeler.</p>
+                <button class="btn-premium btn-fill" style="width: 100%; margin-top: 30px; justify-content: center;" onclick="window.open('https://wa.me/905376331025')">Fiyat Sor <i class="fa-solid fa-shop" style="color: rgb(39, 39, 39);"></i></button>
             </div>
         </div>
     </section>
@@ -644,7 +801,7 @@
                     <div class="form-group">
                         <textarea class="premium-input" rows="5" placeholder="Mesajınız (Kurbanlık türü, kilo bilgisi vb.)" required></textarea>
                     </div>
-                    <button type="submit" class="btn-premium btn-fill" style="width: 100%; justify-content: center;">Talebi Gönder</button>
+                    <button type="submit" class="btn-premium btn-fill" style="width: 100%; justify-content: center;">Talebi Gönder <i class="fa-solid fa-share" style="color: rgb(39, 39, 39);"></i></button>
                 </form>
             </div>
         </div>
@@ -654,6 +811,7 @@
         <div style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;"><i class="fa-solid fa-cow"></i></div>
         <h2 style="font-family: 'Playfair Display', serif; letter-spacing: 5px; margin-bottom: 10px;">ÖZDEMİR BESİ ÇİFTLİĞİ</h2>
         <p style="opacity: 0.6;">Hasan Özdemir ve Oğulları | Erzurum İspir Geleneksel Hayvancılık</p>
+        <p style="opacity: 0.6;">Bu site, Hasan Özdemir'in torunu Abdullah Özdemir tarafından yapılmıştır.</p>
         
         <div class="social-links">
             <a href="https://www.facebook.com/eyup.ozdemir.777" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
@@ -686,6 +844,68 @@
                 document.getElementById('hero-btns').style.opacity = '1';
                 document.getElementById('hero-btns').style.transform = 'translateY(0)';
             }, 1100);
+
+            // --- Instagram Style Slider Logic ---
+            const familySlider = document.getElementById('demo-family-slider');
+            const progressFills = document.querySelectorAll('.progress-dot-fill');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            let currentIdx = 0;
+            const totalImgs = 5; // 5 Fotoğraf
+            let sliderInterval;
+
+            function updateSlider() {
+                // Kaydırma işlemi
+                const moveX = (currentIdx * -100) / totalImgs;
+                familySlider.style.transform = `translateX(${moveX}%)`;
+
+                // Çizgileri güncelle
+                progressFills.forEach((fill, index) => {
+                    fill.classList.remove('active', 'finished');
+                    if (index < currentIdx) {
+                        fill.classList.add('finished');
+                    } else if (index === currentIdx) {
+                        // Reset and restart animation
+                        fill.style.transition = 'none';
+                        fill.style.width = '0%';
+                        setTimeout(() => {
+                            fill.style.transition = 'width 10s linear';
+                            fill.classList.add('active');
+                        }, 50);
+                    }
+                });
+            }
+
+            function nextSlide() {
+                currentIdx = (currentIdx + 1) % totalImgs;
+                updateSlider();
+            }
+
+            function prevSlide() {
+                currentIdx = (currentIdx - 1 + totalImgs) % totalImgs;
+                updateSlider();
+            }
+
+            // Otomatik geçişi başlat
+            function startInterval() {
+                clearInterval(sliderInterval);
+                sliderInterval = setInterval(nextSlide, 10000);
+                updateSlider();
+            }
+
+            // Butonlara basıldığında süreyi sıfırla
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                startInterval();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                startInterval();
+            });
+
+            startInterval();
         };
 
         // Scroll Durumuna Göre Navbar Değişimi
@@ -704,7 +924,6 @@
             const bars = document.querySelectorAll('.hamburger span');
             navLinks.classList.toggle('active');
             
-            // Hamburger Animasyonu
             if(navLinks.classList.contains('active')) {
                 bars[0].style.transform = 'rotate(45deg) translate(8px, 8px)';
                 bars[1].style.opacity = '0';
@@ -716,7 +935,7 @@
             }
         }
 
-        // Bölüm Geçiş Animasyonları (Observer)
+        // Bölüm Geçiş Animasyonları
         const observerOptions = { threshold: 0.2 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -739,12 +958,11 @@
                         behavior: 'smooth'
                     });
                 }
-                // Mobilde link tıklandığında menüyü kapat
-                document.getElementById('navLinks').classList.remove('active');
-                toggleMenu(); // İkonu düzeltmek için
+                if(document.getElementById('navLinks').classList.contains('active')) {
+                    toggleMenu();
+                }
             });
         });
     </script>
 </body>
-
 </html>
